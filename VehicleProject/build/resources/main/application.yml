@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/vehicle
+    username: postgres
+    password: increible2009
+
+server:
+   port: 8080
