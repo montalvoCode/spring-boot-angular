@@ -22,7 +22,7 @@ public class Users {
 
 	private String typeUser;
 
-	private Status status;
+//	private Status status;
 
 
 }
