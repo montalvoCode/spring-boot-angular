@@ -10,7 +10,7 @@ public interface UserService {
 
     List<Users> listUsers();
 
-    List<Users> listTypeUser(String typeUser);
+    List<Users> listIdUser(Integer idUsers);
 
     void registerUsers(Users users);
 

@@ -1,4 +1,4 @@
-package com.project.repository.mybatis;
+package com.project.repository;
 
 import com.project.bean.Users;
 import org.apache.ibatis.annotations.Mapper;

@@ -18,10 +18,10 @@
         order by u.idUsers
     </select>
 
-    <select id="listTypeUser" resultMap="users">
+    <select id="listIdUser" resultMap="users">
         SELECT u.idUsers,u.userName,u.passwords,u.startedDate,u.typeUser,s.description FROM users u
         INNER JOIN status s on u.idStatus = s.idStatus
-        WHERE u.typeUser = #{typeUser}
+        WHERE u.idUsers = #{idUsers}
         order by u.idUsers
     </select>
 

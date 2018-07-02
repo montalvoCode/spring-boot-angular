@@ -27,7 +27,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/list-user", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/list-users", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Users>> listUser() {
         logger.info("> Stating list User");
 
@@ -40,11 +40,11 @@ public class UserController {
         return new ResponseEntity<List<Users>>(list, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/list-type-user/{typeUser}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Users>> listTypeUser(@PathVariable("typeUser") String typeUser) {
-        logger.info("> Stating list User for date");
+    @GetMapping(value = "/list-id-users/{idUsers}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Users>> listIdUser(@PathVariable("idUsers") Integer idUsers) {
+        logger.info("> Stating list User for id");
 
-        List<Users> list = userService.listTypeUser(typeUser);
+        List<Users> list = userService.listIdUser(idUsers);
 
         if (list == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -53,7 +53,7 @@ public class UserController {
         return new ResponseEntity<List<Users>>(list, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/create-user", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/create-users", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Users> registerUsers(@RequestBody Users user, BindingResult bindingResult,
                                                UriComponentsBuilder ucBuilder) {
         logger.info("> Stating Create User", user);
@@ -70,7 +70,7 @@ public class UserController {
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/update-user", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/update-users", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Users> updateUsers(@RequestBody Users user, BindingResult bindingResult,
                                              UriComponentsBuilder ucBuilder) {
         logger.info("Update User", user);

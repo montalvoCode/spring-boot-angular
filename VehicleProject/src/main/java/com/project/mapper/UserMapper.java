@@ -13,7 +13,7 @@ public interface UserMapper {
 
     List<Users> listUsers();
 
-    List<Users> listTypeUser(@Param("typeUser") String typeUser);
+    List<Users> listIdUser(@Param("idUsers") Integer idUsers);
 
     void registerUsers(Users users);
 
