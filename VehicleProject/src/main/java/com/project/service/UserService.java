@@ -16,4 +16,6 @@ public interface UserService {
 
     void updateUsers(Users users);
 
+    void deleteUsers(@Param("idUsers") Integer idUsers);
+
 }

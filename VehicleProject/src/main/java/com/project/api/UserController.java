@@ -20,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:4200",  allowedHeaders = "*")
 public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -85,6 +86,14 @@ public class UserController {
         }
 
         userService.updateUsers(user);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/delete-users/{idUsers}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Users> deleteUsers(@PathVariable("idUsers") Integer idUsers) {
+        logger.info("Delete User", idUsers);
+
+        userService.deleteUsers(idUsers);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

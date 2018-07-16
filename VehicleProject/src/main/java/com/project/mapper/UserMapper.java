@@ -19,4 +19,6 @@ public interface UserMapper {
 
     void updateUsers(Users users);
 
+    void deleteUsers(@Param("idUsers") Integer idUsers);
+
 }

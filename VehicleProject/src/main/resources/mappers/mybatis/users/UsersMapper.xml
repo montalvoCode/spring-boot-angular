@@ -33,6 +33,11 @@
         WHERE idUsers = #{idUsers}
     </update>
 
+    <delete id="deleteUsers" parameterType="com.project.bean.Users">
+          DELETE FROM Users
+          WHERE idUsers = #{idUsers}
+    </delete>
+
     <!--<resultMap type="com.project.bean.Users" id="users">-->
         <!--<id column="idUsers" property="idUsers"/>-->
         <!--<result column="userName" property="userName"/>-->

@@ -1,26 +1,26 @@
 <div class="container">
-
   <table class="table table-striped">
     <thead>
       <th>Id</th>
       <th>User Name</th>
+      <th>Password</th>
       <th>Started Date</th>
       <th>Type User</th>
       <th>Operations </th>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>{{user.id}}</td>
+        <td>{{user.idUsers}}</td>
         <td>{{user.userName}}</td>
+        <td>{{user.passwords}}</td>
         <td>{{user.startedDate}}</td>
         <td>{{user.typeUser}}</td>
         <td>
-          <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
-          <button class="btn btn-primary" (click)="updateUser(user)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteUsers(user)">Delete</button>
+          <button class="btn btn-primary" (click)="updateUsers(user)">Edit</button>
         </td>
-
       </tr>
     </tbody>
   </table>
-  <button class="btn btn-primary" (click)="newUser()">New User</button>
+  <button class="btn btn-primary" (click)="newUsers()">New User</button>
 </div>

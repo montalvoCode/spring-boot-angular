@@ -1,3 +1,25 @@
-<p>
-  user-form works!
-</p>
+<div class="container">
+
+  <form (ngSubmit)="processForm()">
+      <div class="form group">
+        <input type="text" name="idUsers" class="form-control" [(ngModel)]="users.idUsers">
+      </div>
+      <div class="form group">
+          <label for="userName">User Name</label>
+          <input type="text" name="userName" class="form-control" [(ngModel)]="users.userName" />
+      </div>
+      <div class="form group">
+          <label for="passwords">Password</label>
+          <input type="text" name="passwords" class="form-control" [(ngModel)]="users.passwords" />
+      </div>
+      <div class="form group">
+        <label for="startedDate">Started Date</label>
+        <input type="text" name="startedDate" class="form-control" [(ngModel)]="users.startedDate" />
+      </div>
+      <div class="form group">
+        <label for="typeUser">Type User</label>
+        <input type="text" name="typeUser" class="form-control" [(ngModel)]="users.typeUser" />
+      </div>
+      <input type="submit" value="save" class="btn btn-success">
+  </form>
+</div>

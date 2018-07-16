@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
-  private users: Users[];
+  public users: Users[];
   constructor(private _userService: UserService, private _router: Router) { }
 
   ngOnInit() {
-    this._userService.getUsers().subscribe((users) => {
+      this._userService.getUsers().subscribe((users) => {
       console.log(users);
       this.users = users;
     }, (error) => {
@@ -35,9 +35,8 @@ export class ListUsersComponent implements OnInit {
   }
 
   newUsers() {
-    let users : Users;
-    this._userService.setter(users);
+    let user = new Users("","","","");
+    this._userService.setter(user);
     this._router.navigate(['/op']);
-
   }
 }
