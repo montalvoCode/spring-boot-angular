@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.mapper.UserMapper">
+
+    <resultMap type="com.project.bean.Users" id="users">
+        <id column="id_users" property="idUsers"/>
+        <result column="user_name" property="userName"/>
+        <result column="passwords" property="passwords"/>
+        <result column="started_date" property="startedDate"/>
+        <result column="type_user" property="typeUser"/>
+    </resultMap>
+
+    <select id="listUsers" resultMap="users">
+        SELECT u.id_users,u.user_name,u.passwords,u.started_date,u.type_user FROM users u
+        order by u.id_Users
+    </select>
+
+    <select id="listIdUser" resultMap="users">
+        SELECT u.id_Users,u.user_name,u.passwords,u.started_date,u.type_User FROM users u
+        WHERE u.id_users = #{idUsers}
+        order by u.id_users
+    </select>
+
+    <insert id="registerUsers" parameterType="com.project.bean.Users">
+        INSERT INTO users(user_name, passwords, started_date, type_user)
+            VALUES (#{userName}, #{passwords}, #{startedDate} , #{typeUser});
+    </insert>
+
+    <update id="updateUsers" parameterType="com.project.bean.Users">
+        UPDATE users
+        SET user_name=#{userName}, passwords=#{passwords}, started_date=#{startedDate}, type_user=#{typeUser}
+        WHERE id_users = #{idUsers}
+    </update>
+
+    <delete id="deleteUsers" parameterType="com.project.bean.Users">
+          DELETE FROM Users
+          WHERE id_users = #{idUsers}
+    </delete>
+
+    <!--<resultMap type="com.project.bean.Users" id="users">-->
+        <!--<id column="idUsers" property="idUsers"/>-->
+        <!--<result column="userName" property="userName"/>-->
+        <!--<result column="passwords" property="passwords"/>-->
+        <!--<result column="startedDate" property="startedDate"/>-->
+        <!--<result column="typeUser" property="typeUser"/>-->
+        <!--<result column="description" property="status.description"/>-->
+    <!--</resultMap>-->
+
+    <!--<select id="listUsers" resultMap="users">-->
+        <!--SELECT u.idUsers,u.userName,u.passwords,u.startedDate,u.typeUser,s.description FROM users u-->
+        <!--INNER JOIN status s on u.idStatus = s.idStatus-->
+        <!--order by u.idUsers-->
+    <!--</select>-->
+
+    <!--<select id="listIdUser" resultMap="users">-->
+        <!--SELECT u.idUsers,u.userName,u.passwords,u.startedDate,u.typeUser,s.description FROM users u-->
+        <!--INNER JOIN status s on u.idStatus = s.idStatus-->
+        <!--WHERE u.idUsers = #{idUsers}-->
+        <!--order by u.idUsers-->
+    <!--</select>-->
+
+    <!--<insert id="registerUsers" parameterType="com.project.bean.Users">-->
+        <!--INSERT INTO users(userName, passwords, startedDate, typeUser, idStatus)-->
+            <!--VALUES (#{userName}, #{passwords}, #{startedDate} , #{typeUser}, #{status.idStatus, javaType=Integer});-->
+    <!--</insert>-->
+
+    <!--<update id="updateUsers" parameterType="com.project.bean.Users">-->
+        <!--UPDATE users-->
+        <!--SET userName=#{userName}, passwords=#{passwords}, startedDate=#{startedDate}, typeuser=#{typeUser},-->
+        <!--idstatus=#{status.idStatus, javaType=Integer}-->
+        <!--WHERE idUsers = #{idUsers}-->
+    <!--</update>-->
+
+</mapper>

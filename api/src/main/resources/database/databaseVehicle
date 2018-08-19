@@ -1,0 +1,58 @@
+﻿CREATE TABLE status
+(
+id_status serial PRIMARY KEY,
+description varchar(50)
+)
+
+CREATE TABLE users
+(
+id_users serial PRIMARY KEY,
+user_name varchar(50) NOT NULL,
+passwords varchar(50) NOT NULL,
+started_date date NOT NULL,
+type_user varchar(30) NOT NULL,
+id_status integer REFERENCES status(id_status)
+)
+
+CREATE TABLE employees
+(
+id_employees serial PRIMARY KEY,
+first_name varchar(50) NOT NULL,
+last_name varchar(50) NOT NULL,
+dni varchar(8) NOT NULL,
+gender varchar(1) NOT NULL,
+birth_date date,
+hire_date date,
+salary numeric(9,2),
+phone_number varchar(9),
+id_status integer REFERENCES status(id_status)
+)
+
+CREATE TABLE legal_customer
+(
+id_legal_customer serial PRIMARY KEY,
+company_name varchar(50) NOT NULL,
+address varchar(100) NOT NULL,
+ruc varchar(12) NOT NULL,
+contact_name varchar(100) NOT NULL,
+number_phone varchar(9) NOT NULL,
+id_status integer REFERENCES status(id_status)
+)
+
+INSERT INTO public.status(description)
+    VALUES ('Activo');
+
+INSERT INTO public.status(description)
+    VALUES ('Inactivo');
+    
+INSERT INTO public.users(user_name, passwords, started_date, type_user, id_status)
+    VALUES ('admin', '1234', current_date, 'ROLE_ADMIN', 1);
+
+select * from users
+
+
+
+
+
+
+

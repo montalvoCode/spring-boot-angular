@@ -1,0 +1,18 @@
+spring:
+  profiles: default
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+        ddl-auto: update
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/vehicle
+    username: postgres
+    password: increible2009
+
+server:
+   port: 8080
