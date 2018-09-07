@@ -1,0 +1,19 @@
+server:
+  port: 8099
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    forma1:
+      path: /micro-client/**
+      url:  http://localhost:8080/
+    forma2:
+      path: /micro-api/**
+      serviceId: MICRO-CLIENT
+    nodejs:
+      path: /node-client/**
+      url:
