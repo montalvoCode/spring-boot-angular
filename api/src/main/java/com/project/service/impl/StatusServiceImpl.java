@@ -21,8 +21,8 @@ public class StatusServiceImpl implements StatusService {
     }
 
     @Override
-    public Optional<Status> findById(Integer id) {
-        return statusRepository.findById(id);
+    public Status findById(Integer id) {
+        return statusRepository.findOne(id);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class StatusServiceImpl implements StatusService {
 
     @Override
     public void delete(Integer idStatus) {
-        statusRepository.deleteById(idStatus);
+        statusRepository.delete(idStatus);
     }
 }

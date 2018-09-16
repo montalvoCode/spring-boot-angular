@@ -36,7 +36,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
-        return new ResponseEntity<List<Users>>(list, HttpStatus.OK);
+            return new ResponseEntity<List<Users>>(list, HttpStatus.OK);
     }
 
     @GetMapping(value = "/list-id-users/{idUsers}", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -1,6 +1,6 @@
 package com.project.bean;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
 

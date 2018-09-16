@@ -35,19 +35,19 @@ public class StatusController {
     }
 
     @GetMapping(value = "/list-id-status/{idStatus}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Optional<Status>> listIdStatus(@PathVariable("idStatus") Integer idStatus) {
-        Optional<Status> list = statusService.findById(idStatus);
+    public ResponseEntity<Status> listIdStatus(@PathVariable("idStatus") Integer idStatus) {
+        Status list = statusService.findById(idStatus);
 
         if (list == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
-        return new ResponseEntity<Optional<Status>>(list, HttpStatus.OK);
+        return new ResponseEntity<Status>(list, HttpStatus.OK);
     }
 
     @PostMapping(value = "/create-status", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Status> registerUsers(@RequestBody Status status, BindingResult bindingResult,
-                                               UriComponentsBuilder ucBuilder) {
+                                                UriComponentsBuilder ucBuilder) {
         BindingErrorsResponse errors = new BindingErrorsResponse();
         HttpHeaders headers = new HttpHeaders();
 
@@ -63,7 +63,7 @@ public class StatusController {
 
     @PutMapping(value = "/update-status", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Status> updateUsers(@RequestBody Status status, BindingResult bindingResult,
-                                             UriComponentsBuilder ucBuilder) {
+                                              UriComponentsBuilder ucBuilder) {
 
         BindingErrorsResponse errors = new BindingErrorsResponse();
         HttpHeaders headers = new HttpHeaders();

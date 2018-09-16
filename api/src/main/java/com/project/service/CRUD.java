@@ -7,11 +7,11 @@ public interface CRUD<T> {
 
     List<T> findAll();
 
-    Optional<T> findById(Integer id);
+    T findById(Integer id);
 
-    void create (T obj);
+    void create(T obj);
 
-    void update (T obj);
+    void update(T obj);
 
-    void delete (Integer id);
+    void delete(Integer id);
 }
