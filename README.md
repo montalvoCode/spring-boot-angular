@@ -1,2 +1,2 @@
 # spring-boot-angular
-Spring Boot and Angular
+Spring Boot and Angular 6
